@@ -33,11 +33,11 @@ const Cocina = {
     },
 
     buscarBaratos: function() {
-        return inventarioProductos.filter(p => p.precio < 40);
+        return inventarioProductos.filter(p => p.precio < 150);
     },
 
     buscarCaros: function() {
-        return inventarioProductos.filter(p => p.precio >= 40);
+        return inventarioProductos.filter(p => p.precio >= 150);
     },
 
     buscarBebidas: function() {
@@ -47,7 +47,9 @@ const Cocina = {
     buscarPostres: function() {
         return inventarioProductos.filter(p => p.categoria === "postre");
     }
-                /* Promesas */
+                /* Promesas para simular esperas*/
+
+
 
 };
 
