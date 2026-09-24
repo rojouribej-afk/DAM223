@@ -47,6 +47,11 @@ const Cocina = {
     buscarPostres: function() {
         return inventarioProductos.filter(p => p.categoria === "postre");
     }
+                /* Promesas */
+
 };
+
+
+
 
 module.exports = Cocina;
