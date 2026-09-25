@@ -46,8 +46,16 @@ const Cocina = {
 
     buscarPostres: function() {
         return inventarioProductos.filter(p => p.categoria === "postre");
-    }
+    },
                 /* Promesas para simular esperas*/
+
+    porductoListo: function (pedido) {
+        return new Promise((resolve) => {
+            console.log("Revisando su pedido")
+        })
+
+
+    }
 
 
 
