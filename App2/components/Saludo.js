@@ -1,0 +1,9 @@
+
+/* Importamos el componente de texto */
+import {Text} from 'react-native';
+
+export const Saludo = () => {
+    return(
+        <Text>Hola RN: Componente propio</Text>
+    )
+}

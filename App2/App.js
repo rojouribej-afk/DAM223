@@ -1,14 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/* 1) ZONA DE EXPORTACIONES */
 
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Image} from 'react-native';
+import {Saludo} from './components/Saludo';
+import {Saludo2} from './components/Saludo2';
+
+
+
+
+
+/* 2) ZONA DE MAIN (COMPONENTES) */
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Hola mundo!</Text>
+      <Image source={require('./assets/mano.png')}></Image>
+      <Saludo></Saludo>
+      <Saludo />
+
+ 
+
+
+      
+      {/* Status bar es donde se muestra la barra de estado del dispositivo */}
       <StatusBar style="auto" />
     </View>
   );
 }
+
+/* Zona de estilos  */
 
 const styles = StyleSheet.create({
   container: {
