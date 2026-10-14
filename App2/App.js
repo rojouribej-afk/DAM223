@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image} from 'react-native';
 import {Saludo} from './components/Saludo';
 import {Saludo2} from './components/Saludo2';
+import {Perfil} from './components/Perfil';
 
 
 
@@ -17,11 +18,11 @@ export default function App() {
       <Image source={require('./assets/mano.png')}></Image>
       <Saludo></Saludo>
       <Saludo />
+      <Saludo2></Saludo2>
+      <Perfil></Perfil>
+
 
  
-
-
-      
       {/* Status bar es donde se muestra la barra de estado del dispositivo */}
       <StatusBar style="auto" />
     </View>

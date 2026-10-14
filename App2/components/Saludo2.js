@@ -1,7 +1,7 @@
 
 /* Importamos el componente de texto */
 import { View, Button,Text, Image } from 'react-native';
-import {Text} from 'react-native';
+
 
 export const Saludo2 = () => {
     return(
@@ -10,5 +10,5 @@ export const Saludo2 = () => {
         <Image source={require('../assets/mano.png')}></Image>
         <Button title ="Presiona para saludar" ></Button>
         </View>
-    )
-}
+    );  
+};
