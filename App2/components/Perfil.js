@@ -1,12 +1,27 @@
 import { View, Button,Text, Image } from 'react-native';
+import { useState } from 'react';
+/* Aqui dentro de () van las propiedades que se pasan al componente */
+export const Perfil = ({nombre,carrera,materia,cuatrimestre}) => {
 
-export const Perfil = () => {
+    const[mostrar,setMostrar] = useState(false);/* Aqui añadimos un estado para mostrar/ocultar la información, hay que importar useState para poder ocupar esto*/
+
     return(
+
+/* Agregamos propiedades para que este componente propio pase de ser 
+estatico y pase a ser dinamico, esto para que las propiedades puedan 
+adquirir diferentes valores en el Main y reutilizarse este componente */
 <View>
-<Text>Jesus Rojo Uribe </Text>
-<Text>Tecnologia de la información e innovación digital</Text>
-<Text>Desarrollo de aplicaciones móviles</Text>
-<Text>Cuatrimestre 4</Text>
+
+<Text>{nombre} </Text>
+{ mostrar &&  /* Aqui se hace la validación para mostrar/ocultar la información */
+<>
+<Text>{carrera}</Text>
+<Text>{materia}</Text>
+<Text>{cuatrimestre}</Text>
+</>
+}
+<Button title="Ver perfil" onPress={ ()=>setMostrar(!mostrar) }></Button>
 </View>
     );
+
 };

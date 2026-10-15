@@ -17,14 +17,27 @@ export default function App() {
       <Text>Hola mundo!</Text>
       <Image source={require('./assets/mano.png')}></Image>
       <Saludo></Saludo>
-      <Saludo />
       <Saludo2></Saludo2>
-      <Perfil></Perfil>
+
+
+      {/* Aqui en perfil se pasan las propiedades que le asignamos en el componente */}
+
+      <Perfil 
+      
+      nombre="Jesus Rojo Uribe" 
+      carrera="Tecnologia de la información e innovación digital" 
+      materia="Desarrollo de aplicaciones móviles" 
+      cuatrimestre="Cuatrimestre 4">
+
+      </Perfil>
+
+      
 
 
  
       {/* Status bar es donde se muestra la barra de estado del dispositivo */}
       <StatusBar style="auto" />
+      
     </View>
   );
 }
