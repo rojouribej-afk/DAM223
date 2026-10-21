@@ -14,12 +14,7 @@ import {Perfil} from './components/Perfil';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hola mundo!</Text>
-      <Image source={require('./assets/mano.png')}></Image>
-      <Saludo></Saludo>
-      <Saludo2></Saludo2>
-
-
+  
       {/* Aqui en perfil se pasan las propiedades que le asignamos en el componente */}
 
       <Perfil 
@@ -27,10 +22,31 @@ export default function App() {
       nombre="Jesus Rojo Uribe" 
       carrera="Tecnologia de la información e innovación digital" 
       materia="Desarrollo de aplicaciones móviles" 
-      cuatrimestre="Cuatrimestre 4">
+      cuatrimestre="Cuatrimestre 4"
+      style={styles.tarjeta1}>
+  
 
       </Perfil>
 
+      <Perfil 
+      
+      nombre="Gustavo Adrian Cerati" 
+      carrera="Mecatronica" 
+      materia="Desarrollo de robots" 
+      cuatrimestre="Cuatrimestre 5"
+      style={styles.tarjeta2}>
+
+      </Perfil>
+
+      <Perfil 
+      
+      nombre="Francisco Duran Rueda" 
+      carrera="Negocios Internacionales" 
+      materia="Desarrollo de Empresas" 
+      cuatrimestre="Cuatrimestre 6"
+      style={styles.tarjeta3}>
+
+      </Perfil>
       
 
 
@@ -48,7 +64,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    flexDirection:'column-reverse',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+tarjeta1:{backgroundColor:'green'},
+tarjeta2:{backgroundColor:'orange'},
+tarjeta3:{backgroundColor:'brown'},
+
+
 });
