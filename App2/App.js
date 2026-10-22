@@ -1,62 +1,20 @@
 /* 1) ZONA DE EXPORTACIONES */
 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
-import {Saludo} from './components/Saludo';
-import {Saludo2} from './components/Saludo2';
-import {Perfil} from './components/Perfil';
-
-
-
+import { StyleSheet, View} from 'react-native';
+import MenuScreen from "./screens/MenuScreen";
 
 
 /* 2) ZONA DE MAIN (COMPONENTES) */
 export default function App() {
+
   return (
     <View style={styles.container}>
-  
-      {/* Aqui en perfil se pasan las propiedades que le asignamos en el componente */}
-
-      <Perfil 
-      
-      nombre="Jesus Rojo Uribe" 
-      carrera="Tecnologia de la información e innovación digital" 
-      materia="Desarrollo de aplicaciones móviles" 
-      cuatrimestre="Cuatrimestre 4"
-      style={styles.tarjeta1}>
-  
-
-      </Perfil>
-
-      <Perfil 
-      
-      nombre="Gustavo Adrian Cerati" 
-      carrera="Mecatronica" 
-      materia="Desarrollo de robots" 
-      cuatrimestre="Cuatrimestre 5"
-      style={styles.tarjeta2}>
-
-      </Perfil>
-
-      <Perfil 
-      
-      nombre="Francisco Duran Rueda" 
-      carrera="Negocios Internacionales" 
-      materia="Desarrollo de Empresas" 
-      cuatrimestre="Cuatrimestre 6"
-      style={styles.tarjeta3}>
-
-      </Perfil>
-      
-
-
- 
-      {/* Status bar es donde se muestra la barra de estado del dispositivo */}
-      <StatusBar style="auto" />
-      
+    
+    <MenuScreen></MenuScreen>
     </View>
   );
 }
+
 
 /* Zona de estilos  */
 
@@ -64,14 +22,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    flexDirection:'row',
+    flexDirection:'column',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
-
-tarjeta1:{backgroundColor:'green'},
-tarjeta2:{backgroundColor:'orange'},
-tarjeta3:{backgroundColor:'brown'},
-
 
 });
