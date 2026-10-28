@@ -6,99 +6,93 @@ import { StyleSheet, View, Text, TextInput, Button, Alert} from 'react-native';
 
 /* 2) ZONA DE MAIN (COMPONENTES) */
 export default function TextInputScreen() {
+const [nombre, setNombre] = useState("");
+const [correo, setCorreo] = useState("");
+const [telefono, setTelefono] = useState("");
 
-  const [nombre, setNombre] = useState('');
-  const [correo, setCorreo] = useState('');
-  const [telefono, setTelefono] = useState('');
+const registrar = () => {
+  const faltantes=[];
+  if(nombre.trim() ==='')
+    faltantes.push('Nombre');
+  if(correo.trim() ==='')
+    faltantes.push('Correo');
+  if(telefono.trim() ==='')
+    faltantes.push('Telefono');
 
-  const registrar = () => {
+  if(faltantes.length>0){
+    Alert.alert('Faltan Datos', 'Completa:'+faltantes.join(','));
+    return;
+  }
 
-    const faltantes = [];
-    if (nombre.trim() === '') faltantes.push('Nombre');
-    if (correo.trim() === '') faltantes.push('Correo');
-    if (telefono.trim() === '') faltantes.push('Teléfono');
- 
+  if(!correo.includes('@')){
+    Alert.alert('Correo invalido, este debe contener un @');
+    return;
+  }
 
-    if (faltantes.length > 0) {
-      Alert.alert('Faltan datos', 'Completa: ' + faltantes.join(', '));
-      return;
-    }
- 
+  Alert.alert(
+    'Datos registrados', `Nombre: ${nombre}\nCorreo: ${correo}\nTelefono: ${telefono}`
+  );
 
-    if (!correo.includes('@')) {
-      Alert.alert('Correo inválido', 'El correo debe contener @');
-      return;
-    }
- 
-  
-    Alert.alert(
-      'Datos registrados',
-      `Nombre: ${nombre}\nCorreo: ${correo}\nTeléfono: ${telefono}`
-    );
- 
+  setNombre("");
+  setCorreo("");
+  setTelefono("");
 
-    setNombre('');
-    setCorreo('');
-    setTelefono('');
-  };
- 
-  
-  return (
-    <View style={styles.contenedor}>
+};
+
+return (
+    <View style={styles.container}>
       <Text style={styles.titulo}>Registro de datos</Text>
- 
+
       <TextInput
         style={styles.input}
-        placeholder="Nombre"
+        placeholder='Nombre'
         value={nombre}
         onChangeText={setNombre}
       />
- 
+
       <TextInput
         style={styles.input}
-        placeholder="Correo"
+        placeholder='Correo'
         value={correo}
         onChangeText={setCorreo}
-        keyboardType="email-address"
-        autoCapitalize="none"
+        keyboardType='email-address'
+        autoCapitalize='none'
       />
- 
+
       <TextInput
         style={styles.input}
-        placeholder="Teléfono"
+        placeholder='Telefono'
         value={telefono}
         onChangeText={setTelefono}
-        keyboardType="numeric"
+        keyboardType='numeric'
         maxLength={10}
       />
- 
-      <Button title="Registrar" onPress={registrar} />
-    </View>
+
+     <Button title='Registrar'
+     onPress={registrar}/>
+     </View>
   );
 }
- 
 
 const styles = StyleSheet.create({
-  contenedor: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
+  container:{
+    flex:1,
+    justifyContent:'center',
+    padding:20
   },
-  titulo: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
+  titulo:{
+    fontSize:24,
+    fontWeight:'bold',
+    textAlign:'center',
+    marginBottom:20,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#999',
-    borderRadius: 8,
-    padding: 10,
-    marginBottom: 12,
+  input:{
+    borderWidth:1,
+    borderColor:'#999',
+    borderRadius:8,
+    padding:10,
+    marginBottom:12,
   },
 });
 
-
-
-
+ 
