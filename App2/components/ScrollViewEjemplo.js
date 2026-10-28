@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { StyleSheet, Text, Button, ScrollView } from "react-native";
+import { View, StyleSheet, Text, Button, ScrollView } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
  export default function ScrollViewEjemplo(){
@@ -17,11 +18,11 @@ import { StyleSheet, Text, Button, ScrollView } from "react-native";
     showsHorizontalScrollIndicator={true}
     scrollEnabled = {desplazar} 
     >
-        <View style={styles.tarjeta1}> <Text> Tarjeta 1</Text></View>
-        <View style={styles.tarjeta2}> <Text> Tarjeta 2</Text></View>
-        <View style={styles.tarjeta3}> <Text> Tarjeta 3</Text></View>
-        <View style={styles.tarjeta4}> <Text> Tarjeta 4</Text></View>
-        <View style={styles.tarjeta5}> <Text> Tarjeta 5</Text></View>
+        <View style={styles.tarjeta1}><Text>Tarjeta 1</Text></View>
+        <View style={styles.tarjeta2}><Text>Tarjeta 2</Text></View>
+        <View style={styles.tarjeta3}><Text>Tarjeta 3</Text></View>
+        <View style={styles.tarjeta4}><Text>Tarjeta 4</Text></View>
+        <View style={styles.tarjeta5}><Text>Tarjeta 5</Text></View>
     </ScrollView>
     
 </View>

@@ -1,6 +1,6 @@
 
 import {use, useState} from 'react';
-import {Stylesheet, Text, Button, ImageBackground} from 'react-native';
+import {View, Text, StyleSheet, Button, ImageBackground} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function SafeAreaEjemplo(){
@@ -8,9 +8,9 @@ export default function SafeAreaEjemplo(){
     return(
 
         
-<SafeAreaView style= {Styles.container} edges={['top', 'bottom']}> 
+<SafeAreaView style= {styles.container} edges={['top', 'bottom']}> 
     <Text style = {styles.titulo}>Ejemplo de SafeAreaView </Text>
-    <text style = {styles.mensaje}>{mensaje}</text>
+    <Text style = {styles.mensaje}>{mensaje}</Text>
     <Button 
     title ="cambiar mensaje"
     onPress={() => (setMensaje === 'Esta es nuestra practica'

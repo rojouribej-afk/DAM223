@@ -3,7 +3,6 @@
 import { StyleSheet, View, Text, ScrollView} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import SafeAreaEjemplo from '../components/SafeAreaEjemplo';
-import SafeAreaEjemplo from '../components/SafeAreaEjemplo';
 import ScrollViewEjemplo from '../components/ScrollViewEjemplo';
 
 /* 2) ZONA DE MAIN (COMPONENTES) */
