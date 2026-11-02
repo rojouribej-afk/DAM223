@@ -1,66 +1,111 @@
-/* 1) ZONA DE EXPORTACIONES */
 import { useState } from 'react';
-import { StyleSheet, View, Text, Switch, Pressable} from 'react-native';
+import { View, Text, TextInput, Button, Alert, Platform, StyleSheet } from 'react-native';
 
-/* 2) ZONA DE MAIN (COMPONENTES) */
-export default function PressableScreen() {
 
-  const[encendido,SetEnciendido] = useState(false);
-  const[contador, setContador] = useState(0);
+const mostrarAlerta = (titulo, mensaje) => {
+    if (Platform.OS === 'web') {
+        window.alert(`${titulo}\n\n${mensaje}`);
+    } else {
+        Alert.alert(titulo, mensaje);
+    }
+};
 
-  return (
-    <View style={styles.container}>
-    
-    <Text style = {styles.titulo}> Aqui va la practica 11 Switch y Pressable </Text>
-    <Text> Equipo de Karen </Text>
-    <Switch
-    value = {encendido}
-    onValueChange={(valor) => SetEnciendido(valor)}
-    />
-    <Text style={styles.texto}>
-      El switch esta: {encendido ? 'Encendido': 'Apagado'}
-    </Text>
+export default function App() {
 
-    <Pressable
-    style={styles.boton}
-    onPress={() => setContador(contador + 1)}>
+    const [nombre, setNombre] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [telefono, setTelefono] = useState('');
 
-    <Text style = {styles.textoBoton}> Presioname </Text>
-    </Pressable>
-    <Text style ={styles.texto}>Veces presionado: {contador} </Text>
-    </View>
-  );
+
+    const registrar = () => {
+
+        const faltantes = [];
+        if (nombre.trim() === '') faltantes.push('Nombre');
+        if (correo.trim() === '') faltantes.push('Correo');
+        if (telefono.trim() === '') faltantes.push('Teléfono');
+
+        if (faltantes.length > 0) {
+            mostrarAlerta('Faltan datos', 'Completa: ' + faltantes.join(', '));
+            return;
+        }
+
+
+        if (!correo.includes('@')) {
+            mostrarAlerta('Correo inválido', 'El correo debe contener @');
+            return;
+        }
+
+
+        if (telefono.length !== 10) {
+            mostrarAlerta('Teléfono inválido', 'Debe tener 10 dígitos');
+            return;
+        }
+
+        // Todo bien
+        mostrarAlerta(
+            'Datos registrados',
+            `Nombre: ${nombre}\nCorreo: ${correo}\nTeléfono: ${telefono}`
+        );
+
+
+        setNombre('');
+        setCorreo('');
+        setTelefono('');
+    };
+
+
+    return (
+        <View style={styles.contenedor}>
+            <Text style={styles.titulo}>Registro de datos</Text>
+
+            <TextInput
+                style={styles.input}
+                placeholder="Nombre"
+                value={nombre}
+                onChangeText={setNombre}
+            />
+
+            <TextInput
+                style={styles.input}
+                placeholder="Correo"
+                value={correo}
+                onChangeText={setCorreo}
+                keyboardType="email-address"
+                autoCapitalize="none"
+            />
+
+            <TextInput
+                style={styles.input}
+                placeholder="Teléfono"
+                value={telefono}
+                onChangeText={setTelefono}
+                keyboardType="numeric"
+                maxLength={10}
+            />
+
+            <Button title="Registrar" onPress={registrar} />
+        </View>
+    );
 }
 
-/* Zona de estilos  */
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    flexDirection:'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  titulo:{
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 40,
-  },
-  texto: {
-    fontSize: 18,
-    marginVertical: 15,
-  },
- boton: {
-  backgroundColor: '#117480ee',
-  padding: 15,
-  borderRadius: 10,
-  marginTop: 30,
- },
- textoBoton: {
-color:'white',
-fontSize: 18,
-fontWeight: 'bold',
- }
-
+    contenedor: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 20,
+    },
+    titulo: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: '#999',
+        borderRadius: 8,
+        padding: 10,
+        marginBottom: 12,
+    },
 });
