@@ -5,13 +5,13 @@ import { StyleSheet, View, Text} from 'react-native';
 
 
 /* 2) ZONA DE MAIN (COMPONENTES) */
-export default function IndicatorScreen() {
+export default function BackgroundScreen() {
 
   return (
     <View style={styles.container}>
     
-    <Text> Aqui va la practica 16</Text>
-    <Text> Equipo de Judith </Text>
+    <Text> Aqui va la practica 1?</Text>
+    <Text> Equipo de No se </Text>
 
     </View>
   );
