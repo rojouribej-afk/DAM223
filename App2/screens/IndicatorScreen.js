@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, ActivityIndicator, KeyboardAvoidingView, Platform, Switch, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Button, ActivityIndicator, 
+  KeyboardAvoidingView, Platform, Switch, Text, StyleSheet } from 'react-native';
 
 export default function ActivityIndicatorScreen() {
   const [cargando, setCargando] = useState(false);
