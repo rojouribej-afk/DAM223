@@ -191,6 +191,6 @@ tarjeta:{
   paddingHorizontal: 20,
   marginBottom: 14,   
 }
-
+  
 }
 );
